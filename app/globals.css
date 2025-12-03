@@ -25,7 +25,14 @@ body {
 }
 
 @layer base {
-  main {
-    @apply container mx-auto;
+  main,
+  footer {
+    @apply container mx-auto px-2;
+  }
+}
+
+@layer utilities {
+  .link {
+    @apply underline underline-offset-4;
   }
 }

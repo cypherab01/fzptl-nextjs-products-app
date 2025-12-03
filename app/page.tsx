@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/layouts/SectionHeader';
 import ProductCard from '@/components/ProductCard';
-import Section from '@/components/ui/section';
+import { Typography } from '@/components/ui/typography';
 import { getProducts } from '@/helpers/getProducts';
 import React from 'react';
 
@@ -10,7 +10,7 @@ export default async function ProductsPage() {
   if (!products) {
     return (
       <React.Fragment>
-        <h1>Products not found!</h1>
+        <Typography variant="h2">Products not found!</Typography>
       </React.Fragment>
     );
   }
