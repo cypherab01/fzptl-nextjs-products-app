@@ -1,23 +1,12 @@
+import ListProducts from '@/components/layouts/ListProducts';
 import SectionHeader from '@/components/layouts/SectionHeader';
-import ProductCard from '@/components/ProductCard';
-import { Typography } from '@/components/ui/typography';
-import { getProducts } from '@/helpers/getProducts';
-import React from 'react';
+import ProductsCardSkeleton from '@/components/product/ProductCardSkeleton';
+import { Suspense } from 'react';
 
-export default async function ProductsPage() {
-  const products = await getProducts();
-
-  if (!products) {
-    return (
-      <React.Fragment>
-        <Typography variant="h2">Products not found!</Typography>
-      </React.Fragment>
-    );
-  }
-
+export default function ProductsPage() {
   return (
     <>
-      {/* section header component */}
+      {/* section header */}
       <SectionHeader
         title="Exclusive Products"
         description="Discover exclusive product at your ease"
@@ -25,12 +14,10 @@ export default async function ProductsPage() {
 
       {/* filtering list goes here */}
 
-      {/* product card listing */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {products.map((product, _) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {/* product list */}
+      <Suspense fallback={<ProductsCardSkeleton />}>
+        <ListProducts />
+      </Suspense>
     </>
   );
 }

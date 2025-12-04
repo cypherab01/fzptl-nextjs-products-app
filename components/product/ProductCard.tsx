@@ -1,7 +1,8 @@
 import { Product } from '@/types/Product';
 import Image from 'next/image';
-import { Typography } from './ui/typography';
-import StarIcon from './ui/star';
+import { Typography } from '@/components/ui/typography';
+import StarIcon from '@/components/ui/star';
+import fallbackImage from '@/public/assets/images/fallback.png';
 
 const ProductCard = ({ product }: { product: Product }) => {
   const rating = Math.round(product.rating.rate ?? 4);
@@ -10,7 +11,8 @@ const ProductCard = ({ product }: { product: Product }) => {
       {/* Image */}
       <div className="bg-gray-50 aspect-square flex items-center justify-center overflow-hidden transition-all duration-300">
         <Image
-          src={product.image}
+          // src={fallbackImage}
+          src={product.image ?? fallbackImage}
           width={320}
           height={320}
           alt={product.title}

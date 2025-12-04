@@ -1,4 +1,4 @@
-import Section from '../ui/section';
+import Section from '@/components/ui/section';
 import { Typography } from '../ui/typography';
 
 interface SectionHeaderProps {

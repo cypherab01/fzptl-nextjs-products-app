@@ -22,7 +22,7 @@ export function Typography({
   const baseStyles: Record<Variant, string> = {
     h1: 'text-3xl mb-2 font-semibold text-foreground',
     h2: 'text-2xl my-2 font-bold',
-    h3: 'font-medium',
+    h3: 'text-xl font-medium',
     p: 'text-gray-600',
   };
 
