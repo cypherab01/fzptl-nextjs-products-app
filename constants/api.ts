@@ -1,14 +1,11 @@
 export async function apiFetch<T = any>(
   endpoint: string,
-  options: RequestInit = {}
+  options: RequestInit = {},
 ): Promise<T> {
-  const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL ?? 'https://fakestoreapi.com';
 
-  if (!BASE_URL) {
-    throw new Error("Missing environment variable: NEXT_PUBLIC_API_BASE_URL");
-  }
-
-  if (!endpoint.startsWith("/")) {
+  if (!endpoint.startsWith('/')) {
     endpoint = `/${endpoint}`;
   }
 
@@ -16,9 +13,9 @@ export async function apiFetch<T = any>(
 
   try {
     const res = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       ...options,
     });
@@ -29,8 +26,8 @@ export async function apiFetch<T = any>(
 
     return (await res.json()) as T;
   } catch (err) {
-    const error = err instanceof Error ? err : new Error("Unknown error");
-    console.error("API Error:", error.message);
+    const error = err instanceof Error ? err : new Error('Unknown error');
+    console.error('API Error:', error.message);
     throw error;
   }
 }

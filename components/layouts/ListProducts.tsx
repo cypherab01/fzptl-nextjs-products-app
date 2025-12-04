@@ -14,8 +14,6 @@ const ListProducts = ({ products }: { products: Product[] }) => {
     return ['all', ...unique];
   }, [products]);
 
-  console.log(categories);
-
   const filteredProducts = useMemo(() => {
     if (selectedCategory === 'all') return products; // here we returing original props
     return products.filter((p) => p.category === selectedCategory);
