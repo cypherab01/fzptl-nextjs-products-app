@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: 'FZPTL Nextjs Products App',
+  name: 'FZPTL Nextjs Demo App',
   shortName: 'FZPTL',
   description: 'Check out our exclusive products collection at FZPTL',
   developer: {

@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = `Explore our products: ${titles}`;
 
   return {
-    title: siteConfig.description,
+    title: siteConfig.name,
     description,
   };
 }
