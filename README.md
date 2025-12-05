@@ -34,7 +34,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
-5. **Build for production**
+4. **Build for production**
 
 ```bash
 npm run build
